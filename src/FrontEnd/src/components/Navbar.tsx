@@ -7,6 +7,7 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import UserHistory from "./UserHistory";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -115,8 +116,7 @@ function Navbar() {
                       url="history"
                     >
                       <div>
-                        <h1>History</h1>
-                        <p>This page contains history of user predictions</p>
+                        <UserHistory/>
                       </div>
                     </UserButton.UserProfilePage>
                   </UserButton>

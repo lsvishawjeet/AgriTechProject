@@ -7,8 +7,11 @@ import {
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Skeleton } from "./ui/skeleton";
+import axios from "axios";
+import { useUser } from "@clerk/nextjs";
 
 function AIinsights() {
+  const {user} = useUser()
   const apiKey = "AIzaSyDsoMy940nDJWuJNGWUZhmuTsbXoIsH4S0";
   const genAI = new GoogleGenerativeAI(apiKey as string);
   //   const md = markdownit();
@@ -45,6 +48,29 @@ function AIinsights() {
           const result = await chatSession.sendMessage(enteredValues);
           setMessage(result.response.text());
           console.log(result.response.text());
+          const d:any = sessionStorage.getItem("enteredValues")
+          const soilprop = JSON.parse(d)
+          const items = {
+            userId: user?.publicMetadata?.userId,
+            date: new Date(),
+            enteredFields: {
+               nitrogen: soilprop.Nitrogen,
+               phosphorus: soilprop.Phosphorus,
+               potassium: soilprop.Potassium,
+               temperature: soilprop.Temperature,
+               humidity: soilprop.Humidity,
+               phValue: soilprop.pH_Value,
+               rainfall: soilprop.Rainfall,
+            },
+            predictedCrop: sessionStorage.getItem("predicted_crop"),
+            aiSummery: result.response.text()
+          }
+          try {
+            const historyUpdation = await axios.post("/api/updateHistory", items)
+            console.log(historyUpdation)
+          } catch (error) {
+            console.log("failed updation history")
+          }
     } catch (error) {
         console.log(error)
     } finally{

@@ -17,9 +17,17 @@ function page() {
         </div>
       </div>
       <div className="md:w-1/2 bg-white md:h-[100%] p-2 md:rounded-r-2xl">
-        <div className="bg-weblogo1 bg-center bg-cover md:h-[100%] rounded-2xl">
-          <div className="flex justify-center items-center md:h-[100%] md:glass rounded-2xl">
-          <SignIn path="/signin" />
+        <div className="bg-[#EFE1C4] bg-center bg-cover md:h-[100%] rounded-2xl">
+          <div className="flex justify-center items-center md:h-[100%]  rounded-2xl">
+            <div className="">
+          <SignIn path="/signin" 
+          appearance={{
+            variables: {
+              colorBackground: "",
+            },
+          }}
+          />
+          </div>
           </div>
         </div>
       </div>

@@ -14,3 +14,17 @@ export async function createUser(userData: any) {
         throw error;
     }
 }
+
+export async function updateHistory(data: any) {
+    try {
+        await dbConnect()
+        const {userId, searchData} = data;
+        const update = User.updateOne(
+            {_id: userId},
+            {$push:{history: searchData}}
+        )
+    } catch (error) {
+        console.error('Error creating user:', error);
+        throw error;
+    }
+}

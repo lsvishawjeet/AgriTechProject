@@ -1,6 +1,4 @@
 import mongoose, {Schema, Document, model, models} from "mongoose";
-import { Interface } from "readline";
-import { date } from "zod";
 
 export interface UserI extends Document{
     clerkId: string,
