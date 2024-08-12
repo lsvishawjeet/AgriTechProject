@@ -1,10 +1,12 @@
 import Main from "@/components/Main";
 import Navbar from "@/components/Navbar";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import React from "react";
 
 // Dynamically import SendCropData
-const SendCropData = dynamic(() => import('@/components/SendCropData'), { ssr: false });
+const SendCropData = dynamic(() => import("@/components/SendCropData"), {
+  ssr: false,
+});
 
 function Page() {
   return (
@@ -19,9 +21,11 @@ function Page() {
           </div>
         </div>
         <div className="md:w-1/2 bg-white md:h-[100%] p-2 md:rounded-r-2xl">
-          <div className="bg-weblogo1 bg-center bg-cover md:h-[100%] rounded-2xl">
-            <div className="flex justify-center items-center md:h-[100%] md:glass rounded-2xl">
-              <SendCropData />
+          <div className="bg-weblogo1 bg-center bg-cover md:h-[100%] rounded-2xl overflow-scroll">
+            <div className="md:h-[100%] flex justify-center items-center glass align-middle">
+              <div className="rounded-2xl h-[100%]">
+                <SendCropData />
+              </div>
             </div>
           </div>
         </div>
