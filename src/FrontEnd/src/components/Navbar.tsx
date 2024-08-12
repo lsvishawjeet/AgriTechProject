@@ -40,6 +40,32 @@ function Navbar() {
               AgriTech
             </span>
           </a>
+          <div className="flex align-middle ">
+            <div className="md:hidden flex align-middle">
+          <SignedOut>
+                  <SignInButton />
+                </SignedOut>
+                <SignedIn>
+                  <UserButton>
+                    <UserButton.MenuItems>
+                      <UserButton.Action
+                        label="History"
+                        labelIcon={<DotIcon />}
+                        open="history"
+                      />
+                    </UserButton.MenuItems>
+                    <UserButton.UserProfilePage
+                      label="History"
+                      labelIcon={<DotIcon />}
+                      url="history"
+                    >
+                      <div>
+                        <UserHistory/>
+                      </div>
+                    </UserButton.UserProfilePage>
+                  </UserButton>
+                </SignedIn>
+                </div>
           <button
             data-collapse-toggle="navbar-default"
             type="button"
@@ -64,7 +90,9 @@ function Navbar() {
                 d="M1 1h15M1 7h15M1 13h15"
               />
             </svg>
+           
           </button>
+          </div>
           <div
             className={`w-full md:block md:w-auto ${
               isOpen ? "block" : "hidden"
@@ -97,7 +125,7 @@ function Navbar() {
                   Insights
                 </a>
               </li>
-              <li>
+              <li className="hidden md:block">
                 <SignedOut>
                   <SignInButton />
                 </SignedOut>

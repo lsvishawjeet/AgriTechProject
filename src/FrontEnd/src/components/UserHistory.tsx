@@ -26,7 +26,7 @@ function UserHistory() {
 
     return (
         <div className=" min-h-screen">
-            <h1 className="text-lg font-bold mb-4">User History</h1>
+            <h1 className="text-lg font-bold mb-4">Prediction History</h1>
             {historyData.length > 0 ? (
                 historyData.map((item: any, index: number) => (
                     <div key={index} className="bg-white shadow-md rounded-lg p-4 mb-4">
