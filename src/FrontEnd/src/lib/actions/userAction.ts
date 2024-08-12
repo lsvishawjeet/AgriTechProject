@@ -3,14 +3,14 @@ import User from "../modals/userModel";
 
 import dbConnect from "../dbConnect"
 
-export async function createUser(user:any) {
-    try{
-        await dbConnect();
-        const newUser = await User.create(user);
-        console.log("User created")
-        return JSON.parse(JSON.stringify(newUser));
-    }
-    catch (err){
-        console.log(`User creation failed ${err}`)
+export async function createUser(userData: any) {
+    try {
+        await dbConnect()
+        const newUser = new User(userData);
+        await newUser.save();
+        return newUser;
+    } catch (error) {
+        console.error('Error creating user:', error);
+        throw error;
     }
 }

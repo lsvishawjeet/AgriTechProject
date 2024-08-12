@@ -1,4 +1,5 @@
 import { createUser } from '@/lib/actions/userAction'
+import dbConnect from '@/lib/dbConnect'
 import { clerkClient, WebhookEvent } from '@clerk/nextjs/server'
 import { headers } from 'next/headers'
 import { NextRequest, NextResponse } from 'next/server'
@@ -7,6 +8,7 @@ import { Webhook } from 'svix'
 
 
 export async function POST(req: Request) {
+  await dbConnect()
    // You can find this in the Clerk Dashboard -> Webhooks -> choose the endpoint
    const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET
 
