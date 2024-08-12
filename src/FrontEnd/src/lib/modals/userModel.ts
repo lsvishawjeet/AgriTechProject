@@ -61,7 +61,6 @@ const enteredFieldsSchema = new Schema<EnteredFieldsI>({
 const historySchema = new Schema<HistoryI>({
     date: {
         type: Date,
-        required: true
     },
     enteredFields:{
         type: [enteredFieldsSchema],
@@ -76,7 +75,7 @@ const historySchema = new Schema<HistoryI>({
 
 const UserSchema = new Schema<UserI>({
     clerkId:{
-        typee: String,
+        type: String,
         required: true,
         unique: true
     },
