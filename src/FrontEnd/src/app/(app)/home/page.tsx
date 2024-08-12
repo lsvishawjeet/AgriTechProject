@@ -6,19 +6,19 @@ import axios, { AxiosError } from "axios";
 import { backend_address } from "../../../../configurations/address";
 
 function page() {
-  useEffect(()=>{
-    async function wakeUpServer() {
-      try {
-        const response = await axios({
-          method: "get",
-          url: backend_address,
-        });   
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    wakeUpServer()
-  },[])
+  // useEffect(()=>{
+  //   async function wakeUpServer() {
+  //     try {
+  //       const response = await axios({
+  //         method: "get",
+  //         url: backend_address,
+  //       });   
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+  //   wakeUpServer()
+  // },[])
   return (
     <div className="h-[100vh] w-[100vw] bg-weblogo1">
       <div className="h-[100%] w-[100vw] md:p-5 md:flex glass">

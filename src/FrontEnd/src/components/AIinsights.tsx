@@ -47,7 +47,7 @@ function AIinsights() {
           });
           const result = await chatSession.sendMessage(enteredValues);
           setMessage(result.response.text());
-          console.log(result.response.text());
+          // console.log(result.response.text());
           const d:any = sessionStorage.getItem("enteredValues")
           const soilprop = JSON.parse(d)
           const items = {
@@ -67,7 +67,7 @@ function AIinsights() {
           }
           try {
             const historyUpdation = await axios.post("/api/updateHistory", items)
-            console.log(historyUpdation)
+            // console.log(historyUpdation)
           } catch (error) {
             console.log("failed updation history")
           }
