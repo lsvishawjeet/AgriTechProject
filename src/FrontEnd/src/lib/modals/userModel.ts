@@ -84,7 +84,6 @@ const UserSchema = new Schema<UserI>({
     },
     username:{
         type: String,
-        unique: true
     },
     photo:{
         type: String
