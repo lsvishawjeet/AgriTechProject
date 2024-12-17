@@ -12,7 +12,7 @@ import { useUser } from "@clerk/nextjs";
 
 function AIinsights() {
   const {user} = useUser()
-  const apiKey = "AIzaSyDsoMy940nDJWuJNGWUZhmuTsbXoIsH4S0";
+  const apiKey = `${process.env.NEXT_PUBLIC_GEMINI_API_KEY}`;
   const genAI = new GoogleGenerativeAI(apiKey as string);
   //   const md = markdownit();
   const [message, setMessage] = useState<string>("");
